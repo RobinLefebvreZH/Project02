@@ -1,0 +1,227 @@
+@import "tailwindcss";
+
+/* Visual language of robin-lefebvre.com: white page, Helvetica Neue, near-black ink,
+   two greys, small uppercase labels, hairlines instead of boxes, no rounded corners. */
+
+:root {
+  --ink: #111;
+  --mid: #555;
+  --quiet: #8a8a8a;
+  --line: #e6e6e6;
+  --alert: #a3281f;
+  --font: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --mono: ui-monospace, "SF Mono", Menlo, monospace;
+}
+
+html,
+body {
+  background: #fff;
+}
+
+body {
+  color: var(--ink);
+  font-family: var(--font);
+  font-size: 12px;
+  line-height: 1.6;
+  letter-spacing: 0.04em;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: var(--ink);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+}
+a:hover {
+  border-bottom-color: var(--ink);
+}
+
+/* ---------------------------------------------------------------- type */
+
+main h1 {
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1.7;
+  letter-spacing: 0.02em;
+}
+
+.lead {
+  font-size: 15px;
+  line-height: 1.7;
+  letter-spacing: 0.02em;
+  color: var(--ink);
+  max-width: 640px;
+}
+.lead .q {
+  color: var(--mid);
+}
+
+/* Section labels, like the site's h2: 10px, uppercase, wide tracking, grey. */
+.label-caps,
+main h2,
+.card h3 {
+  font-size: 10px;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  color: var(--quiet);
+  line-height: 1.6;
+}
+main h4 {
+  font-size: 11px;
+  font-weight: 400;
+  color: var(--ink);
+  letter-spacing: 0.04em;
+}
+
+.muted {
+  color: var(--quiet);
+}
+
+.mono {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0;
+  word-break: break-all;
+}
+
+/* ---------------------------------------------------------------- sections */
+
+/* "card" is a section separated by a hairline, not a box. */
+.card {
+  border-top: 1px solid var(--line);
+  padding: 24px 0 8px;
+}
+.card > * + * {
+  margin-top: 14px;
+}
+.card p {
+  color: var(--mid);
+}
+
+/* ---------------------------------------------------------------- forms */
+
+.label {
+  display: block;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--quiet);
+  margin-bottom: 6px;
+}
+
+.input {
+  width: 100%;
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid var(--line);
+  border-radius: 0;
+  padding: 6px 0;
+  font-size: 13px;
+  letter-spacing: 0.02em;
+  color: var(--ink);
+}
+.input::placeholder {
+  color: #c4c4c4;
+}
+.input:focus {
+  outline: none;
+  border-bottom-color: var(--ink);
+}
+select.input {
+  appearance: none;
+  cursor: pointer;
+}
+textarea.input {
+  border: 1px solid var(--line);
+  padding: 8px;
+}
+textarea.input:focus {
+  border-color: var(--ink);
+}
+
+/* ---------------------------------------------------------------- buttons */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 8px 12px;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  border: 1px solid var(--ink);
+  border-radius: 0;
+  background: var(--ink);
+  color: #fff;
+  cursor: pointer;
+  transition:
+    background 0.15s,
+    color 0.15s,
+    border-color 0.15s;
+}
+.btn:hover:not(:disabled) {
+  background: #fff;
+  color: var(--ink);
+}
+.btn:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+.btn-secondary {
+  background: transparent;
+  color: var(--ink);
+  border-color: var(--line);
+}
+.btn-secondary:hover:not(:disabled) {
+  border-color: var(--ink);
+}
+.btn-danger {
+  background: transparent;
+  color: var(--alert);
+  border-color: var(--alert);
+}
+.btn-danger:hover:not(:disabled) {
+  background: var(--alert);
+  color: #fff;
+}
+
+/* A status word, not a pill. */
+.badge {
+  display: inline-block;
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: var(--quiet);
+  white-space: nowrap;
+}
+.badge-alert {
+  color: var(--alert);
+}
+
+.alert {
+  color: var(--alert);
+}
+
+/* Native file picker, restyled as a secondary button. */
+input[type="file"] {
+  font-size: 11px;
+  color: var(--quiet);
+}
+input[type="file"]::file-selector-button {
+  margin-right: 12px;
+  padding: 8px 12px;
+  font: inherit;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--ink);
+  background: transparent;
+  border: 1px solid var(--line);
+  border-radius: 0;
+  cursor: pointer;
+}
+input[type="file"]::file-selector-button:hover {
+  border-color: var(--ink);
+}
